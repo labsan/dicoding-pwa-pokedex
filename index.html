@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Pokedex | Learn PWA for Submission 1</title>
+		<meta name="description" content="Pokedex" />
+		<link rel="shortcut icon" href="images/icons/favicon-144.png" type="image/x-icon" />
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/materialize.min.css" />
+		<link rel="manifest" href="manifest.json" />
+	</head>
+
+	<body>
+		<!-- OPEN NAVIGATION -->
+		<nav class="white" role="navigation">
+			<div class="navbar-wrapper container">
+				<img src="images/logo-website.png" class="brand-logo" width="100" alt="pokemon" />
+
+				<a href="#" class="sidenav-trigger black-text" data-target="nav-mobile">
+					<img src="images/icons/hamburger-icon.png" class="hamburger" width="25" alt="hamburger-icon" />
+				</a>
+
+				<ul class="topnav right hide-on-med-and-down"></ul>
+				<ul class="sidenav" id="nav-mobile"></ul>
+			</div>
+		</nav>
+		<!-- END NAVIGATION -->
+
+		<!-- CONTENT SESSION -->
+		<div class="container" id="body-content"></div>
+
+		<footer class="page-footer pink">
+			<div class="container">
+				<div class="row">
+					<div class="col l12 s12">
+						<h5 class="white-text">Noted !!!</h5>
+						<p class="grey-text text-lighten-4">
+							Alhamdulillah salah satu proyek untuk menyelesaikan tugas pada Submission 1 tlah selesai.
+							Semoga team reviewer tidak membutuhkan waktu lama dalam me-review tugas saya, agar saya
+							dapat menyelesaikan tugas selanjutnya dan mampu menyelesaikan kelas pada Learning Path
+							Front-End Web Developer, Aamiin !!! (9 Oktober 2020).
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="footer-copyright black">
+				<div class="container">
+					© 2020 Copyright labsan
+					<a class="grey-text text-lighten-4 right" href="https://github.com/labsan">Github</a>
+				</div>
+			</div>
+		</footer>
+
+		<script src="js/materialize.min.js"></script>
+		<script src="js/nav.js"></script>
+	</body>
+
+	<script>
+		// REGISTER SERVICE WORKER
+		if ('serviceWorker' in navigator) {
+			window.addEventListener('load', function () {
+				navigator.serviceWorker
+					.register('/service-worker.js')
+					.then(function () {
+						console.log('Pendaftaran Service Worker Berhasil.');
+					})
+					.catch(function () {
+						console.log('Pendaftaran Service Worker Gagal.');
+					});
+			});
+		} else {
+			console.log('Service Worker belum didukung browser ini.');
+		}
+	</script>
+</html>
