@@ -1,1 +1,1 @@
-# dicoding-pwa-pokedex.github.io
+# dicoding-pwa-pokedex
