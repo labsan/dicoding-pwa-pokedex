@@ -1,23 +1,20 @@
 {
-    "name": "Submission 1: PWA Pokedex",
+    "name": "Submission 1: PWA Pokedex v2",
     "short_name": "Pokedex",
     "description": "Tugas Submission 1 kelas Membangun PWA",
+    "scope": "/",
     "start_url": "/index.html",
     "display": "standalone",
-    "background_color": "#193549",
+    "background_color": "#b91313",
     "theme_color": "#d9dadf",
     "icons": [{
-            "src": "/images/icons/favicon-144.png",
-            "sizes": "144x144",
-            "type": "image/png"
-        },
-        {
-            "src": "/images/icons/favicon-192.png",
+            "src": "/images/icons/maskable_icon.png",
             "sizes": "192x192",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any maskable"
         },
         {
-            "src": "/images/icons/favicon-512.png",
+            "src": "/images/icons/favicon-app-512.png",
             "sizes": "512x512",
             "type": "image/png"
         }
