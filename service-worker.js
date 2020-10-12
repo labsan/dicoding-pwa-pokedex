@@ -1,5 +1,5 @@
 // Nama cache
-const CACHE_NAME = "pwa-pokedex-v2.6";
+const CACHE_NAME = "pwa-pokedex-v2.7";
 
 // Daftar asset dan halaman 
 const urltoCache = [
