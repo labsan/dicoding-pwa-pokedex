@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     // Navigasi sidebar
-    var elems = document.querySelectorAll('.sidenav');
+    const elems = document.querySelectorAll('.sidenav');
     M.Sidenav.init(elems);
 
     // Panggil fungsi loadNav()
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function loadNav() {
         // Inisialisasi objek AJAX
-        var xhttp = new XMLHttpRequest();
+        const xhttp = new XMLHttpRequest();
 
         // Menangani respon server
         xhttp.onreadystatechange = function () {
@@ -19,24 +19,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 // Muat daftar tautan menu
                 document.querySelectorAll(".topnav, .sidenav")
-                    .forEach(function (elm) {
-                        elm.innerHTML = xhttp.responseText;
-                    });
+                    .forEach(elm => elm.innerHTML = xhttp.responseText);
 
                 // Daftar event listener pada setiap tautan menu
                 document.querySelectorAll(".topnav, .sidenav")
-                    .forEach(function (elm) {
-                        elm.addEventListener('click', function (event) {
+                    .forEach(elm => elm.addEventListener('click', function (event) {
+                        // Tutup sidenav
+                        const sidenav = document.querySelector('.sidenav');
+                        M.Sidenav.getInstance(sidenav).close();
 
-                            // Tutup sidenav
-                            var sidenav = document.querySelector('.sidenav');
-                            M.Sidenav.getInstance(sidenav).close();
-
-                            // Muat konten halaman yang dipanggil
-                            halaman = event.target.getAttribute('href').substr(1);
-                            loadPage(halaman);
-                        });
-                    });
+                        // Muat konten halaman yang dipanggil
+                        halaman = event.target.getAttribute('href').substr(1);
+                        loadPage(halaman);
+                    }));
             }
         };
 
@@ -48,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Load page content Session
     // Ambil hash (#) dari URL
-    var halaman = window.location.hash.substr(1);
+    let halaman = window.location.hash.substr(1);
 
     // Seleksi jika URL tidak memiliki hash (#)
     if (halaman == "") halaman = "home";
@@ -59,12 +54,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function loadPage(halaman) {
         // Inisialisasi objek AJAX
-        var xhttp = new XMLHttpRequest();
+        const xhttp = new XMLHttpRequest();
 
         // Menangani respon server
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4) {
-                var konten = document.querySelector("#body-content");
+                let konten = document.querySelector("#body-content");
                 if (this.status == 200) {
                     konten.innerHTML = xhttp.responseText;
                 } else if (this.status == 404) {
@@ -76,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
         };
 
         // Kirim perintah ke server
-        xhttp.open("GET", "pages/" + halaman + ".html", true);
+        xhttp.open("GET", `pages/${halaman}.html`, true);
         xhttp.send();
 
     }
