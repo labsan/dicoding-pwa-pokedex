@@ -5,9 +5,18 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Pokedex | Learn PWA for Submission 1</title>
 		<meta name="description" content="Pokedex" />
-		<link rel="shortcut icon" href="images/icons/favicon-144.png" type="image/x-icon" />
+
+		<!-- CONNECT ICON ANDROID DEVICE -->
+		<link rel="shortcut icon" href="images/icons/favicon-browser-192.png" type="image/x-icon" />
+
+		<!-- CONNECT ICON iOS DEVICE -->
+		<link rel="apple-toch-icon" href="images/icons/favicon-browser-192.png" />
+
+		<!-- CONNECT CSS -->
 		<link rel="stylesheet" href="css/style.css" />
 		<link rel="stylesheet" href="css/materialize.min.css" />
+
+		<!-- CONNECT MANIFEST -->
 		<link rel="manifest" href="manifest.json" />
 	</head>
 
@@ -25,11 +34,12 @@
 				<ul class="sidenav" id="nav-mobile"></ul>
 			</div>
 		</nav>
-		<!-- END NAVIGATION -->
+		<!-- CLOSE NAVIGATION -->
 
 		<!-- CONTENT SESSION -->
 		<div class="container" id="body-content"></div>
 
+		<!-- OPEN FOOTER -->
 		<footer class="page-footer pink">
 			<div class="container">
 				<div class="row">
@@ -51,26 +61,11 @@
 				</div>
 			</div>
 		</footer>
+		<!-- CLOSE FOOTER -->
 
+		<!-- CONNECT JAVASCRIPT -->
 		<script src="js/materialize.min.js"></script>
 		<script src="js/nav.js"></script>
+		<script src="js/register-service-worker.js"></script>
 	</body>
-
-	<script>
-		// REGISTER SERVICE WORKER
-		if ('serviceWorker' in navigator) {
-			window.addEventListener('load', function () {
-				navigator.serviceWorker
-					.register('/service-worker.js')
-					.then(function () {
-						console.log('Pendaftaran Service Worker Berhasil.');
-					})
-					.catch(function () {
-						console.log('Pendaftaran Service Worker Gagal.');
-					});
-			});
-		} else {
-			console.log('Service Worker belum didukung browser ini.');
-		}
-	</script>
 </html>
