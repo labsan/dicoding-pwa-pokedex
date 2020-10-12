@@ -1,15 +1,16 @@
 // Nama cache
-const CACHE_NAME = "pwa-pokedex-v0";
+const CACHE_NAME = "pwa-pokedex-v2.6";
 
 // Daftar asset dan halaman 
-var urltoCache = [
+const urltoCache = [
     "/",
+    "/manifest.json",
     "/index.html",
     "/css/materialize.min.css",
     "/css/style.css",
-    "/images/icons/favicon-144.png",
-    "/images/icons/favicon-192.png",
-    "/images/icons/favicon-512.png",
+    "/images/icons/favicon-browser-192.png",
+    "/images/icons/maskable_icon.png",
+    "/images/icons/favicon-app-512.png",
     "/images/icons/hamburger-icon.png",
     "/images/pokedexs/electric/raichu.png",
     "/images/pokedexs/electric/pikachu.png",
@@ -29,6 +30,7 @@ var urltoCache = [
     "/images/logo-website.png",
     "/js/materialize.min.js",
     "/js/nav.js",
+    "/js/register-service-worker.js",
     "/pages/home.html",
     "/pages/nav.html",
     "/pages/electric.html",
@@ -75,7 +77,7 @@ self.addEventListener("activate", function (event) {
             return Promise.all(
                 cacheName.map(function (cacheName) {
                     if (cacheName != CACHE_NAME) {
-                        console.log("Serviceworker: cache" + cacheName + " dihapus");
+                        console.log(`Serviceworker: cache ${cacheName} dihapus`);
                         return caches.delete(cacheName);
                     }
                 })
